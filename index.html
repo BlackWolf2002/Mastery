@@ -4,8 +4,368 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/mastery/css/style.css">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            font-family: 'Roboto', sans-serif;
+        }
+        /*HEADER*/
+        .header{
+            margin: 20px;
+        }
+        #header-content{
+            margin: auto;
+            width: 75%;
+        }
+
+        #header-content .header-logo{
+            align-items: center;
+            font-size: 36px;
+        }
+
+        #header-content .header-logo #header-title{
+            color: black;
+            font-weight: 700;
+        }
+        #header-content .header-logo i{
+            background-color: black;
+            color: #fdc800;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 30px;
+        }
+
+        #header-item{
+            margin-top: 10px;
+        }
+
+        #header-item ul li{
+            display: inline;
+            font-size: 20px;
+            padding: 20px;
+        }
+
+        /*CAROUSEL*/
+        .carousel #carousel-img img{
+            width: 100%;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .carousel .carousel-content .carousel-container{
+            margin: auto;
+            width: 75%;
+        }
+
+        .carousel .carousel-content .carousel-container .carousel-item #left{
+            float: left;
+            width: 50%;
+        }
+
+        .carousel .carousel-content .carousel-container{
+            padding-top: 50px;
+            
+        }
+
+        .carousel .carousel-content .carousel-container .carousel-item #right{
+            float: right;
+            width: 50%;
+        }
+
+        .carousel .carousel-content .carousel-container .carousel-item #right img{
+            width: 100%;
+        }
+
+        .carousel .carousel-content .carousel-container .carousel-item #left p{ 
+            padding-top: 25px;
+            line-height:30px;
+        }
+
+        .carousel .carousel-content .carousel-container .carousel-item #left button{ 
+            margin-top: 50px;
+            padding: 8px 16px 8px 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            border: none;
+            background-color: #fdc800;
+        }
+
+        .infor{
+            margin-top: 450px;  
+            position: relative;
+            background-color:#F6F6F6;
+            height: 150px;
+        }
+
+        .infor .info-introduce{
+            width: 75%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding-top:0px
+        }
+
+        .infor .info-introduce .introduce-container .introduce-item{
+            float: left;
+            width: calc(100%/4);
+        }
+
+        .infor .info-introduce .introduce-container .introduce-item h3{
+            float: left;
+            font-size: 50px;
+            padding-right:5px;
+            width: 25%;
+        }
+
+        .infor .info-introduce .introduce-container .introduce-item p{
+            padding-top: 10px;
+            font-size: 15px;
+            float: left;
+            text-transform: uppercase;
+            width: 50%;
+            font-weight: 500;
+            line-height:20px;
+        }
+        /*item*/
+        .show-item .item-container{
+            padding: 50px 300px 50px 300px;
+            --number-item:4;
+            --gap:40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap:var(--gap);
+            justify-content: space-between;
+            margin: auto;
+        }
+
+        .show-item .item-container .items{
+            width: calc((100% - calc( var(--number-item) - 1)* var(--gap))/ var(--number-item));
+            height: 120px;
+            background-color: #002147;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0 20px 0;
+            cursor:grab;
+            border-radius: 5px;
+        }
+
+        .show-item .item-container .items .icon{
+            padding: 30px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .show-item .item-container .items .icon i{
+        font-size: 30px;
+        padding-bottom: 20px;
+        }
+
+        .show-item .item-container .items .icon p{
+            font-size: 15px;
+        }
+
+        .content{
+            padding: 30px 20px 30px 20px;
+            background-color: #F6F6F6;
+        }
+
+        .content .content-container{
+            margin: auto;
+            width: 75%;
+        }
+
+        .content .content-container .content-items{
+            --number-item:2;
+            --gap:40px;
+            display: flex;
+            gap: var(--gap);
+
+        }
+
+        .content .content-container .content-items .show-content{
+            width: calc((100% - calc( var(--number-item) - 1)* var(--gap))/ var(--number-item));
+        }
+
+        .content .content-container .content-items .show-content .last-posts{
+            display: block;
+            background-color:white;
+            padding-bottom: 5px;
+        }
+
+        .content .content-container .content-items .show-content .last-posts .posts img, .upcoming-events .content-card .card{
+            width: 30%;
+            border-radius: 6px;
+        }
+
+        .content .content-container .content-items .show-content .last-posts .posts{
+            display: flex;
+            gap: 10px;
+            margin: 20px;
+            padding-top:20px;
+        }
+
+        .content .content-container .content-items .show-content .last-posts .posts .text{
+            font-size: 15px;
+        }
+
+        .content .content-container .content-items .show-content .last-posts .posts .text p, .upcoming-events .posts .text p{
+            line-height: 25px;
+        }
+
+        .content .content-container .content-items .show-content .last-posts .posts .text #date{
+            color: gray;
+        }
+
+        .content .content-container .content-items .show-content .last-posts .posts .text h4,p{
+            padding-bottom: 10px;
+        }
+
+        hr{
+            margin: 0px 45px 0px 45px;
+            opacity: 0.5;
+        }
+
+        .card {
+            padding-left: 20px;
+            width: 70%;
+            text-align: center;
+        }
+
+        .card__top {
+            padding: 0px;
+            background-color: #fdc800;
+            color: black;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .card__bottom {
+            background-color: #002146;
+            color: #F6F6F6;
+            padding: 10px;
+            padding-left: 0px;
+            padding-bottom: 5px;
+            border-radius: 0 0 5px 5px;
+        }
+
+
+        .content .content-container .content-items .show-content .upcoming-events{
+            display: flex;
+            padding-bottom: 5px;
+            flex-direction: column;
+            margin: 20px;
+        }
+
+        .content .content-container .content-items .show-content .upcoming-events .posts{
+            background-color:white;
+            display: flex;
+            gap: 15px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-top:20px;
+        }
+
+        .btn1{
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        .btn{
+            text-align: right;
+        }
+
+        .btn button{
+            padding:0px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 15px;
+            background-color: #fdc800;
+            color: black;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            height: 35px;
+        }
+
+        /*FOOTER*/
+
+        .footer{
+            background-color: #002146;
+            padding: 15px;
+            position: relative;
+            height: 250px;
+        }
+
+        .footer .footer-container{
+            margin: auto;
+            width: 75%;
+        }
+
+        .footer .footer-container .footer-items{
+            display: block;
+            position: absolute;
+            right: 0;
+            left: 20%;
+            top: 10%;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .footer .footer-container .footer-items hr{
+            position: relative;
+            right: 0;
+            left: -12%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 90%;
+        }
+
+        .footer .footer-container .footer-items .item-1, .item-2{
+            margin-left: -85px;
+        }
+
+        .footer .footer-container .footer-items .item-1{
+            display: flex;
+            color: white;
+
+        }
+
+        .footer .footer-container .footer-items .item-1 #contact i{
+            color: #fdc800;
+            margin-right: 10px;
+        }
+
+        #contact, #featured-link, #quick-link{
+            --number-item:3;
+            --gap:40px;
+            width: calc((100% - calc( var(--number-item) - 1)* var(--gap))/ var(--number-item));
+        }
+
+        #contact h4, #featured-link h4, #quick-link h4{
+            margin-bottom: 20px;
+        }
+        #contact ul li, #featured-link ul li, #quick-link ul li{
+            margin-bottom: 10px;
+        }
+        ul li{
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
